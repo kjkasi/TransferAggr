@@ -1,0 +1,51 @@
+﻿@model TransferAggr.WebMvc.Models.RequestViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>RequestViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*
+            <div class="form-group">
+                <label asp-for="RequestId" class="control-label"></label>
+                <input asp-for="RequestId" class="form-control" />
+                <span asp-validation-for="RequestId" class="text-danger"></span>
+            </div>
+            *@
+            <div class="form-group">
+                <label asp-for="From" class="control-label"></label>
+                <input asp-for="From.PlaceName" class="form-control" id="InputFrom" />
+                <span asp-validation-for="From.PlaceName" class="text-danger"></span>
+            </div>
+            <input asp-for="From.PlaceId" id="InputFromPlaceId" hidden />
+            <input asp-for="From.Longitude" id="InputFromLongitude" hidden />
+            <input asp-for="From.Latitude" id="InputFromLatitude" hidden />
+            <div class="form-group">
+                <label asp-for="To" class="control-label"></label>
+                <input asp-for="To.PlaceName" class="form-control" id="InputTo" />
+                <span asp-validation-for="To.PlaceName" class="text-danger"></span>
+            </div>
+            <input asp-for="To.PlaceId" id="InputToPlaceId" hidden />
+            <input asp-for="To.Longitude" id="InputToLongitude" hidden />
+            <input asp-for="To.Latitude" id="InputToLatitude" hidden />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
