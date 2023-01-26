@@ -8,7 +8,7 @@ $(document).ready(function () {
         $('#InputFrom').autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:5000/api/Place/SearchPlace",
+                    url: "http://localhost:5001/api/PlaceApi/SearchPlace",
                     data: { SearchText: request.term },
                     dataType: "json",
                     type: "GET",
@@ -21,10 +21,11 @@ $(document).ready(function () {
                         else {
                             response($.map(data, function (item) {
                                 return {
-                                    label: item.name,
-                                    place_id: item.placeId,
-                                    long: item.longitude,
-                                    lat: item.longitude
+                                    //{guid: '20924468', address: 'улица Косыгина, дом 23, строение 2', raion: '', housenumber: '23', unit: '', …}
+                                    label: item.cityParsed + ", " + item.address,
+                                    place_id: item.GUID,
+                                    long: item.long,
+                                    lat: item.lat
                                 }
                             }));
                         }
@@ -49,7 +50,7 @@ $(document).ready(function () {
         $('#InputTo').autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:5000/api/Place/SearchPlace",
+                    url: "http://localhost:5001/api/PlaceApi/SearchPlace",
                     data: { SearchText: request.term },
                     dataType: "json",
                     type: "GET",
@@ -62,10 +63,10 @@ $(document).ready(function () {
                         else {
                             response($.map(data, function (item) {
                                 return {
-                                    label: item.name,
-                                    place_id: item.placeId,
-                                    long: item.longitude,
-                                    lat: item.longitude
+                                    label: item.cityParsed + ", " + item.address,
+                                    place_id: item.GUID,
+                                    long: item.long,
+                                    lat: item.lat
                                 }
                             }));
                         }
