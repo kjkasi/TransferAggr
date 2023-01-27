@@ -21,14 +21,14 @@ namespace TransferAggr.GeocodeApi.Controllers
         [HttpGet]
         public async Task<ActionResult> GetAllPlacesAsync()
         {
-            var items = await _context.Items.ToListAsync();
+            var items = await _context.Items.Take(100).ToListAsync();
             return Ok(items);
         }
 
         [HttpGet]
         public async Task<ActionResult> SearchPlaceAsync(string searchText)
         {
-            var items = await _context.Items.Where(x => EF.Functions.Like(x.StreetParsed, $"%{searchText}%")).ToListAsync();
+            var items = await _context.Items.Where(x => EF.Functions.Like(x.StreetParsed, $"%{searchText}%")).Take(10).ToListAsync();
             return Ok(items);
         }
     }
