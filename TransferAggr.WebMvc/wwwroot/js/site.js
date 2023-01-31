@@ -8,8 +8,8 @@ $(document).ready(function () {
         $('#InputFrom').autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:5001/api/PlaceApi/SearchPlace",
-                    data: { SearchText: request.term },
+                    url: "http://localhost:5001/api/place/",
+                    data: { address: request.term },
                     dataType: "json",
                     type: "GET",
                     success: function (data) {
@@ -52,8 +52,8 @@ $(document).ready(function () {
         $('#InputTo').autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:5001/api/PlaceApi/SearchPlace",
-                    data: { SearchText: request.term },
+                    url: "http://localhost:5001/api/place/",
+                    data: { address: request.term },
                     dataType: "json",
                     type: "GET",
                     success: function (data) {

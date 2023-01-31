@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Threading;
+using TransferAggr.GeocodeApi.Models;
 
 namespace TransferAggr.GeocodeApi.Data
 {
@@ -14,7 +15,7 @@ namespace TransferAggr.GeocodeApi.Data
     {
         private readonly IWebHostEnvironment _env;
 
-        public PlaceContext(DbContextOptions<PlaceContext> options, IWebHostEnvironment env, Ilogger) : base(options)
+        public PlaceContext(DbContextOptions<PlaceContext> options, IWebHostEnvironment env) : base(options)
         {
             _env = env;
         }

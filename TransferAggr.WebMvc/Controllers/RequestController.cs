@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using TransferAggr.WebMvc.Models;
 
@@ -8,6 +10,13 @@ namespace TransferAggr.WebMvc.Controllers
     [Route("{controller}")]
     public class RequestController : Controller
     {
+        private readonly IHttpClientFactory _httpClientFactory;
+
+        public RequestController(IHttpClientFactory httpClientFactory)
+        {
+            _httpClientFactory = httpClientFactory;
+        }
+
         [HttpGet]
         [Route("{Action}")]
         public IActionResult Index()
@@ -25,10 +34,25 @@ namespace TransferAggr.WebMvc.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("{Action}")]
-        public IActionResult Create(RequestViewModel item)
+        public async Task<IActionResult> Create(RequestViewModel item)
         {
-            //RedirectToAction(nameof(Details));
-            return Ok(item);
+            if (ModelState.IsValid)
+            {
+                HttpClient client = _httpClientFactory.CreateClient();
+                var response = await client.PostAsJsonAsync("http://host.docker.internal:5000/item", item);
+                response.EnsureSuccessStatusCode();
+                RequestViewModel newItem = await response.Content.ReadFromJsonAsync<RequestViewModel>();
+                /*
+                return RedirectToRoute(new
+                {
+                    controller = "Item",
+                    action = "Details",
+                    id = newItem.Id
+                });
+                */
+                RedirectToAction(nameof(Details));
+            }
+            return View("Error");
         }
 
         [HttpGet]
