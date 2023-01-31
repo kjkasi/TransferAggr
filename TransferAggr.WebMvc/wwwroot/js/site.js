@@ -8,8 +8,8 @@ $(document).ready(function () {
         $('#InputFrom').autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:5001/api/PlaceApi/SearchPlace",
-                    data: { SearchText: request.term },
+                    url: "http://localhost:5002/api/place/address",
+                    data: { name: request.term },
                     dataType: "json",
                     type: "GET",
                     success: function (data) {
@@ -45,6 +45,7 @@ $(document).ready(function () {
                 $('#InputFromPlaceId').val(ui.item.place_id);
                 $('#InputFromLongitude').val(ui.item.lon);
                 $('#InputFromLatitude').val(ui.item.lat);
+                $('#InputFromId').val(ui.item.place_id);
                 return false;
             }
         });
@@ -52,8 +53,8 @@ $(document).ready(function () {
         $('#InputTo').autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:5001/api/PlaceApi/SearchPlace",
-                    data: { SearchText: request.term },
+                    url: "http://localhost:5002/api/place/address",
+                    data: { name: request.term },
                     dataType: "json",
                     type: "GET",
                     success: function (data) {
@@ -86,6 +87,7 @@ $(document).ready(function () {
                 $('#InputToPlaceId').val(ui.item.place_id);
                 $('#InputToLongitude').val(ui.item.lon);
                 $('#InputToLatitude').val(ui.item.lat);
+                $('#InputToId').val(ui.item.place_id);
                 return false;
             }
         });
