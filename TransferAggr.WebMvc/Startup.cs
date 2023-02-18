@@ -37,7 +37,7 @@ namespace TransferAggr.WebMvc
                 .AddCookie("Cookies")
                 .AddOpenIdConnect("oidc", options =>
                 {
-                    options.Authority = "http://localhost:5002";
+                    options.Authority = "https://localhost:5002";
 
                     options.ClientId = "web";
                     options.ClientSecret = "secret";
@@ -51,7 +51,6 @@ namespace TransferAggr.WebMvc
                     options.GetClaimsFromUserInfoEndpoint = true;
 
                     options.SaveTokens = true;
-                    options.RequireHttpsMetadata = false;
                 });
 
         }

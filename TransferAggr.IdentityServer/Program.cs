@@ -1,3 +1,6 @@
+using Duende.IdentityServer;
+using Microsoft.IdentityModel.Tokens;
+
 namespace TransferAggr.IdentityServer
 {
     public class Program
@@ -14,6 +17,8 @@ namespace TransferAggr.IdentityServer
                 .AddInMemoryClients(Config.Clients)
                 .AddTestUsers(TestUsers.Users);
 
+            builder.Services.AddAuthentication();
+
             var app = builder.Build();
 
             app.UseStaticFiles();
@@ -23,8 +28,6 @@ namespace TransferAggr.IdentityServer
 
             app.UseAuthorization();
             app.MapRazorPages().RequireAuthorization();
-
-            //app.MapGet("/", () => "Hello World!");
 
             app.Run();
         }
