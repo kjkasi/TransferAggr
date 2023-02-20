@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Authorization;
 
-namespace TransferAggr.IdentityServer.Pages.Diagnostics;
+namespace IdentityServerAspNetIdentity.Pages.Diagnostics;
 
 [SecurityHeaders]
 [Authorize]

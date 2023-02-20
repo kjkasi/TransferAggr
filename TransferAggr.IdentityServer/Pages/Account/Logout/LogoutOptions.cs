@@ -1,5 +1,5 @@
 
-namespace TransferAggr.IdentityServer.Pages.Logout;
+namespace IdentityServerAspNetIdentity.Pages.Logout;
 
 public class LogoutOptions
 {

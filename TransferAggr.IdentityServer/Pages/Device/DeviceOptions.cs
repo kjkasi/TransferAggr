@@ -2,7 +2,7 @@
 // See LICENSE in the project root for license information.
 
 
-namespace TransferAggr.IdentityServer.Pages.Device;
+namespace IdentityServerAspNetIdentity.Pages.Device;
 
 public class DeviceOptions
 {

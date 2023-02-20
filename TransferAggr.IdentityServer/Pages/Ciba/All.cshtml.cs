@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TransferAggr.IdentityServer.Pages.Ciba;
+namespace IdentityServerAspNetIdentity.Pages.Ciba;
 
 [SecurityHeaders]
 [Authorize]

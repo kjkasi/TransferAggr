@@ -1,7 +1,7 @@
 // Copyright (c) Duende Software. All rights reserved.
 // See LICENSE in the project root for license information.
 
-namespace TransferAggr.IdentityServer.Pages.Login;
+namespace IdentityServerAspNetIdentity.Pages.Login;
 
 public class ViewModel
 {

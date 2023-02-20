@@ -1,4 +1,4 @@
-namespace TransferAggr.IdentityServer.Pages.Login;
+namespace IdentityServerAspNetIdentity.Pages.Login;
 
 public class LoginOptions
 {

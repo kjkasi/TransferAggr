@@ -11,16 +11,8 @@ namespace TransferAggr.IdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
-                new IdentityResource()
-            {
-                Name = "verification",
-                UserClaims = new List<string>
-                {
-                    JwtClaimTypes.Email,
-                    JwtClaimTypes.EmailVerified
-                }
-            }
-            };
+				new IdentityResource("color", new [] { "favorite_color" })
+			};
 
         public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
@@ -64,8 +56,8 @@ namespace TransferAggr.IdentityServer
                         {
                             IdentityServerConstants.StandardScopes.OpenId,
                             IdentityServerConstants.StandardScopes.Profile,
-                            "verification"
-                        }
+							"color"
+						}
                     }
             };
 

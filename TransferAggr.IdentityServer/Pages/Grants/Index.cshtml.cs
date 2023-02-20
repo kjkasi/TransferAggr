@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TransferAggr.IdentityServer.Pages.Grants;
+namespace IdentityServerAspNetIdentity.Pages.Grants;
 
 [SecurityHeaders]
 [Authorize]

@@ -1,4 +1,4 @@
-namespace TransferAggr.IdentityServer.Pages.Grants;
+namespace IdentityServerAspNetIdentity.Pages.Grants;
 
 public class ViewModel
 {

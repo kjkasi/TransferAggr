@@ -1,4 +1,4 @@
-namespace TransferAggr.IdentityServer.Pages.Device;
+namespace IdentityServerAspNetIdentity.Pages.Device;
 
 public class InputModel
 {

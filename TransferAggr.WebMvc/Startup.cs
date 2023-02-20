@@ -46,9 +46,9 @@ namespace TransferAggr.WebMvc
                     options.Scope.Clear();
                     options.Scope.Add("openid");
                     options.Scope.Add("profile");
-                    options.Scope.Add("verification");
-                    options.ClaimActions.MapJsonKey("email_verified", "email_verified");
-                    options.GetClaimsFromUserInfoEndpoint = true;
+					options.Scope.Add("color");
+					options.ClaimActions.MapUniqueJsonKey("favorite_color", "favorite_color");
+					options.GetClaimsFromUserInfoEndpoint = true;
 
                     options.SaveTokens = true;
                 });
