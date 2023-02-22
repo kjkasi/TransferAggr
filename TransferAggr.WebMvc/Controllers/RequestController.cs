@@ -39,7 +39,7 @@ namespace TransferAggr.WebMvc.Controllers
             if (ModelState.IsValid)
             {
                 HttpClient client = _httpClientFactory.CreateClient();
-                var response = await client.PostAsJsonAsync("http://localhost:5002/api/request", item);
+                var response = await client.PostAsJsonAsync("http://localhost:5001/api/request", item);
                 response.EnsureSuccessStatusCode();
                 Request newItem = await response.Content.ReadFromJsonAsync<Request>();
                 return RedirectToRoute(new

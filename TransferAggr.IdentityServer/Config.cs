@@ -47,10 +47,10 @@ namespace TransferAggr.IdentityServer
                         AllowedGrantTypes = GrantTypes.Code,
 
                         // where to redirect after login
-                        RedirectUris = { "https://localhost:5000/signin-oidc" },
+                        RedirectUris = { "https://localhost:5002/signin-oidc" },
 
                         // where to redirect after logout
-                        PostLogoutRedirectUris = { "https://localhost:5000/signout-callback-oidc" },
+                        PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
 
                         AllowedScopes = new List<string>
                         {

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferAggr.WebMvc", "TransferAggr.WebMvc\TransferAggr.WebMvc.csproj", "{7844FE18-E3E2-4342-A6C9-51018627EC3E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferAggr.GeocodeApi", "TransferAggr.GeocodeApi\TransferAggr.GeocodeApi.csproj", "{F86F665D-E8D5-4B67-84B5-43C6FCDE22F5}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferAggr.RequestApi", "TransferAggr.RequestApi\TransferAggr.RequestApi.csproj", "{8CCCF4E3-EB9C-491B-81D8-9B8C3ACA92CE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferAggr.IdentityServer", "TransferAggr.IdentityServer\TransferAggr.IdentityServer.csproj", "{0B0A91A5-48AB-4D15-B224-5085726124E9}"
@@ -21,10 +19,6 @@ Global
 		{7844FE18-E3E2-4342-A6C9-51018627EC3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7844FE18-E3E2-4342-A6C9-51018627EC3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7844FE18-E3E2-4342-A6C9-51018627EC3E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F86F665D-E8D5-4B67-84B5-43C6FCDE22F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F86F665D-E8D5-4B67-84B5-43C6FCDE22F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F86F665D-E8D5-4B67-84B5-43C6FCDE22F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F86F665D-E8D5-4B67-84B5-43C6FCDE22F5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8CCCF4E3-EB9C-491B-81D8-9B8C3ACA92CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8CCCF4E3-EB9C-491B-81D8-9B8C3ACA92CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CCCF4E3-EB9C-491B-81D8-9B8C3ACA92CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
