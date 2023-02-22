@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferAggr.GeocodeApi", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferAggr.RequestApi", "TransferAggr.RequestApi\TransferAggr.RequestApi.csproj", "{8CCCF4E3-EB9C-491B-81D8-9B8C3ACA92CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransferAggr.IdentityServer", "TransferAggr.IdentityServer\TransferAggr.IdentityServer.csproj", "{0B0A91A5-48AB-4D15-B224-5085726124E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransferAggr.IdentityServer", "TransferAggr.IdentityServer\TransferAggr.IdentityServer.csproj", "{0B0A91A5-48AB-4D15-B224-5085726124E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

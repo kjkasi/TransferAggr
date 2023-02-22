@@ -61,6 +61,11 @@ public class Index : PageModel
         // check if we are in the context of an authorization request
         var context = await _interaction.GetAuthorizationContextAsync(Input.ReturnUrl);
 
+        if (Input.Button == "register")
+        {
+            return RedirectToPage("../../Account/Register/Index", new { ReturnUrl = $"{Input.ReturnUrl}" });
+        }
+
         // the user clicked the "cancel" button
         if (Input.Button != "login")
         {

@@ -1,12 +1,9 @@
-using Duende.IdentityServer;
 using IdentityModel;
 using IdentityServerAspNetIdentity;
 using IdentityServerAspNetIdentity.Data;
 using IdentityServerAspNetIdentity.Models;
-using IdentityServerHost;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 
 namespace TransferAggr.IdentityServer
@@ -130,7 +127,7 @@ namespace TransferAggr.IdentityServer
             app.UseIdentityServer();
 
             app.UseAuthorization();
-            app.MapRazorPages().RequireAuthorization();
+			app.MapRazorPages().RequireAuthorization();
 
             app.Run();
         }
