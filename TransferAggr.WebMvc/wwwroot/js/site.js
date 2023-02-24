@@ -8,7 +8,7 @@ $(document).ready(function () {
         $('#InputFrom').autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:5002/api/place/address",
+                    url: "https://localhost:5001/api/place/address",
                     data: { name: request.term },
                     dataType: "json",
                     type: "GET",
@@ -53,7 +53,7 @@ $(document).ready(function () {
         $('#InputTo').autocomplete({
             source: function (request, response) {
                 $.ajax({
-                    url: "http://localhost:5002/api/place/address",
+                    url: "https://localhost:5001/api/place/address",
                     data: { name: request.term },
                     dataType: "json",
                     type: "GET",

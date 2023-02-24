@@ -52,11 +52,14 @@ namespace TransferAggr.IdentityServer
                         // where to redirect after logout
                         PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
 
+                        AllowOfflineAccess = true,
+
                         AllowedScopes = new List<string>
                         {
                             IdentityServerConstants.StandardScopes.OpenId,
                             IdentityServerConstants.StandardScopes.Profile,
-							"color"
+							"color",
+                            "api1"
 						}
                     }
             };

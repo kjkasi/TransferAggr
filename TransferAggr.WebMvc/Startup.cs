@@ -37,7 +37,7 @@ namespace TransferAggr.WebMvc
                 .AddCookie("Cookies")
                 .AddOpenIdConnect("oidc", options =>
                 {
-                    options.Authority = "https://localhost:5000";
+                    options.Authority = Configuration.GetValue<string>("IdentityUrl");
 
                     options.ClientId = "web";
                     options.ClientSecret = "secret";
@@ -47,7 +47,9 @@ namespace TransferAggr.WebMvc
                     options.Scope.Add("openid");
                     options.Scope.Add("profile");
 					options.Scope.Add("color");
-					options.ClaimActions.MapUniqueJsonKey("favorite_color", "favorite_color");
+                    options.Scope.Add("offline_access");
+                    options.Scope.Add("api1");
+                    options.ClaimActions.MapUniqueJsonKey("favorite_color", "favorite_color");
 					options.GetClaimsFromUserInfoEndpoint = true;
 
                     options.SaveTokens = true;

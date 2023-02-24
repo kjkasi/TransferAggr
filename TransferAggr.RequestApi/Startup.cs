@@ -37,6 +37,33 @@ namespace TransferAggr.RequestApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TransferAggr.RequestApi", Version = "v1" });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = @"Enter 'Bearer' [space] and your token",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+                            },
+                            Scheme="oauth2",
+                            Name="Bearer",
+                            In=ParameterLocation.Header
+                        },
+                        new List<string>()
+                    }
+
+                });
             });
 
             var config = new MapperConfiguration(cfg =>
@@ -53,9 +80,24 @@ namespace TransferAggr.RequestApi
             {
                 option.AddPolicy("FromWebMvc", builder =>
                 {
-                    builder.WithOrigins("http://localhost:5000");
+                    builder.WithOrigins($"{Configuration.GetValue<string>("WebUrl")}");
                 });
             });
+
+            services.AddAuthentication("Bearer")
+            .AddJwtBearer(options =>
+            {
+                options.Authority = $"{Configuration.GetValue<string>("IdentityUrl")}";
+                options.TokenValidationParameters.ValidateAudience = false;
+            });
+
+            services.AddAuthorization(options =>
+                options.AddPolicy("ApiScope", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "api1");
+                })
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

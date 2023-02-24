@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace TransferAggr.RequestApi.Controllers
 {
     [Route("api")]
     [ApiController]
+    [Authorize]
     public class RequestApiController : ControllerBase
     {
         private readonly RequestContext _context;
