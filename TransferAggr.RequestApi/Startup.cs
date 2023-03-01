@@ -85,14 +85,14 @@ namespace TransferAggr.RequestApi
             });
 
             services.AddAuthentication("Bearer")
-            .AddJwtBearer(options =>
-            {
-                options.Authority = $"{Configuration.GetValue<string>("IdentityUrl")}";
-                options.TokenValidationParameters.ValidateAudience = false;
-            });
+                .AddJwtBearer(opt =>
+                {
+                    opt.Authority = $"{Configuration.GetValue<string>("IdentityUrl")}";
+                    opt.TokenValidationParameters.ValidateAudience = false;
+                });
 
-            services.AddAuthorization(options =>
-                options.AddPolicy("ApiScope", policy =>
+            services.AddAuthorization(opt =>
+                opt.AddPolicy("ApiScope", policy =>
                 {
                     policy.RequireAuthenticatedUser();
                     policy.RequireClaim("scope", "api1");
@@ -115,6 +115,9 @@ namespace TransferAggr.RequestApi
             context.Database.EnsureCreated();
 
             app.UseRouting();
+
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

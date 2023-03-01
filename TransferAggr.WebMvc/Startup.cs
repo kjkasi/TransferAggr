@@ -29,30 +29,28 @@ namespace TransferAggr.WebMvc
 
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
-            services.AddAuthentication(options =>
+            services.AddAuthentication(opt =>
             {
-                options.DefaultScheme = "Cookies";
-                options.DefaultChallengeScheme = "oidc";
+                opt.DefaultScheme = "Cookies";
+                opt.DefaultChallengeScheme = "oidc";
             })
                 .AddCookie("Cookies")
-                .AddOpenIdConnect("oidc", options =>
+                .AddOpenIdConnect("oidc", opt =>
                 {
-                    options.Authority = Configuration.GetValue<string>("IdentityUrl");
+                    opt.Authority = Configuration.GetValue<string>("IdentityUrl");
 
-                    options.ClientId = "web";
-                    options.ClientSecret = "secret";
-                    options.ResponseType = "code";
+                    opt.ClientId = "web";
+                    opt.ClientSecret = "secret";
+                    opt.ResponseType = "code";
 
-                    options.Scope.Clear();
-                    options.Scope.Add("openid");
-                    options.Scope.Add("profile");
-					options.Scope.Add("color");
-                    options.Scope.Add("offline_access");
-                    options.Scope.Add("api1");
-                    options.ClaimActions.MapUniqueJsonKey("favorite_color", "favorite_color");
-					options.GetClaimsFromUserInfoEndpoint = true;
+                    opt.Scope.Clear();
+                    opt.Scope.Add("openid");
+                    opt.Scope.Add("profile");
+                    opt.Scope.Add("offline_access");
+                    opt.Scope.Add("api1");
+					opt.GetClaimsFromUserInfoEndpoint = true;
 
-                    options.SaveTokens = true;
+                    opt.SaveTokens = true;
                 });
 
         }

@@ -11,13 +11,12 @@ namespace TransferAggr.IdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
-				new IdentityResource("color", new [] { "favorite_color" })
 			};
 
         public static IEnumerable<ApiScope> ApiScopes =>
         new List<ApiScope>
         {
-            new ApiScope("api1", "MyAPI")
+            new ApiScope("api1", "TransferAggrApi")
         };
 
         public static IEnumerable<ApiResource> ApiResources =>
@@ -58,7 +57,6 @@ namespace TransferAggr.IdentityServer
                         {
                             IdentityServerConstants.StandardScopes.OpenId,
                             IdentityServerConstants.StandardScopes.Profile,
-							"color",
                             "api1"
 						}
                     }

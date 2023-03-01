@@ -51,8 +51,7 @@ public class Index : PageModel
 			{
 				UserName = Input.Username,
 				Email = Input.Email,
-				EmailConfirmed = true,
-				FavoriteColor = "red",
+				EmailConfirmed = true
 			};
 			var result = await _userManager.CreateAsync(user, Input.Password);
 			if (result.Succeeded)

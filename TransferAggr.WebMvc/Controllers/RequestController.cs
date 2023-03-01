@@ -55,7 +55,7 @@ namespace TransferAggr.WebMvc.Controllers
                 Request newItem = await response.Content.ReadFromJsonAsync<Request>();
                 return RedirectToRoute(new
                 {
-                    controller = "Item",
+                    controller = "Request",
                     action = "Details",
                     id = newItem.RequestId
                 });

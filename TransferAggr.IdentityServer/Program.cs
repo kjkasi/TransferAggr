@@ -37,8 +37,7 @@ namespace TransferAggr.IdentityServer
 				.AddInMemoryIdentityResources(Config.IdentityResources)
 				.AddInMemoryApiScopes(Config.ApiScopes)
 				.AddInMemoryClients(Config.Clients)
-				.AddAspNetIdentity<ApplicationUser>()
-				.AddProfileService<CustomProfileService>();
+				.AddAspNetIdentity<ApplicationUser>();
 
 
 			builder.Services.AddAuthentication();
@@ -61,7 +60,6 @@ namespace TransferAggr.IdentityServer
 						UserName = "alice",
 						Email = "AliceSmith@email.com",
 						EmailConfirmed = true,
-						FavoriteColor = "red",
 					};
 					var result = userMgr.CreateAsync(alice, "Pass123$").Result;
 					if (!result.Succeeded)
@@ -94,7 +92,6 @@ namespace TransferAggr.IdentityServer
 						UserName = "bob",
 						Email = "BobSmith@email.com",
 						EmailConfirmed = true,
-						FavoriteColor = "blue",
 					};
 					var result = userMgr.CreateAsync(bob, "Pass123$").Result;
 					if (!result.Succeeded)
