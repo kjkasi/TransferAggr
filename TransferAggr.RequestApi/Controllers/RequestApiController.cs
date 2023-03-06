@@ -29,18 +29,27 @@ namespace TransferAggr.RequestApi.Controllers
 
         // GET: api/RequestApi
         [HttpGet]
+        [AllowAnonymous]
         [Route("request")]
         public async Task<ActionResult<IEnumerable<Request>>> GetRequestItems()
         {
-            return await _context.RequestItems.ToListAsync();
+            return await _context.RequestItems
+                .Include(u => u.From)
+                .Include(u => u.To)
+                .ToListAsync();
         }
 
         // GET: api/RequestApi/5
         [HttpGet]
+        [AllowAnonymous]
         [Route("request/{id}")]
         public async Task<ActionResult<Request>> GetRequest(int id)
         {
-            var request = await _context.RequestItems.FindAsync(id);
+            //var request = await _context.RequestItems.FindAsync(id);
+            var request = await _context.RequestItems
+                .Include(u => u.From)
+                .Include(u => u.To)
+                .FirstOrDefaultAsync(p => p.RequestId == id);
 
             if (request == null)
             {

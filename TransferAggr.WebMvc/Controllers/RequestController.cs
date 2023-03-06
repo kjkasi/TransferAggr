@@ -27,9 +27,20 @@ namespace TransferAggr.WebMvc.Controllers
 
         [HttpGet]
         [Route("{Action}")]
-        public IActionResult Index()
+        public async Task<IActionResult>Index()
         {
-            return View();
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            HttpClient client = _httpClientFactory.CreateClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var response = await client.GetAsync($"{_baseUrl}/api/request/");
+            response.EnsureSuccessStatusCode();
+            IEnumerable<Request> Items = await response.Content.ReadFromJsonAsync<IEnumerable<Request>>();
+
+
+            return View(Items);
+
+            //return View();
         }
 
         [HttpGet]
@@ -65,9 +76,18 @@ namespace TransferAggr.WebMvc.Controllers
 
         [HttpGet]
         [Route("{Action}/{id:int}")]
-        public IActionResult Details(int? id)
+        public async Task<IActionResult> Details(int? id)
         {
-            return View(new Request());
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            HttpClient client = _httpClientFactory.CreateClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var response = await client.GetAsync($"{_baseUrl}/api/request/{id}");
+            response.EnsureSuccessStatusCode();
+            Request Item = await response.Content.ReadFromJsonAsync<Request>();
+            
+
+            return View(Item);
         }
     }
 }

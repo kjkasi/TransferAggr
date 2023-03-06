@@ -10,9 +10,9 @@ namespace TransferAggr.RequestApi.Models
     {
         [Key]
         public int RequestId { get; set; }
-        public int FromId { get; set; }
+        public string? FromId { get; set; }
         public Place From { get; set; }
-        public int ToId { get; set; }
+        public string? ToId { get; set; }
         public Place To { get; set; }
     }
 }

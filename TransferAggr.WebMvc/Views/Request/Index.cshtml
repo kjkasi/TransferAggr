@@ -17,6 +17,12 @@
                 <th>
                     @Html.DisplayNameFor(model => model.RequestId)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.From)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.To)
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -28,9 +34,15 @@
                         @Html.DisplayFor(modelItem => item.RequestId)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        @Html.DisplayFor(modelItem => item.From.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.To.Address)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.RequestId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.RequestId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.RequestId })
                     </td>
                 </tr>
             }

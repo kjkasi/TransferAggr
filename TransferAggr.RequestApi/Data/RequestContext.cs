@@ -25,6 +25,17 @@ namespace TransferAggr.RequestApi.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Request>().HasKey(ci => ci.RequestId);
+            modelBuilder.Entity<Place>().HasKey(ci => ci.GUID);
+
+            modelBuilder.Entity<Request>().HasOne(ci => ci.From)
+                .WithMany()
+                .HasForeignKey(ci => ci.FromId);
+
+            modelBuilder.Entity<Request>().HasOne(ci => ci.To)
+                .WithMany()
+                .HasForeignKey(ci => ci.ToId);
+
             string csvFilePlaces = Path.Combine(_env.ContentRootPath, "Data", "ru-msk.csv");
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture)
